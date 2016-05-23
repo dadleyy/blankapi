@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+
+"use strict";
+
+require("dotenv").load();
+const lib = require("../lib");
+
+lib.make([
+  lib.hooks.cli
+]).then(function(app) {
+  app.cli.run(process.argv);
+}).catch(function(e) {
+  console.error(e);
+});
